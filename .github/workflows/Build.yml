@@ -38,3 +38,12 @@ jobs:
           path: ${{ github.workspace }}/micro_ros_stm32cubemx_utils
           compression-level: 0
           if-no-files-found: error # 'warn' or 'ignore' are also available, defaults to `warn`
+
+
+      - name: 上传到发布版本
+        uses: solomon112/microROS-F407@master
+        with:
+          args: micro_ros_stm32cubemx_utils_build.zip application/zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
